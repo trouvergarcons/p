@@ -2,1217 +2,957 @@
 <html lang="en">
 
 <head>
-
-    <!-- Character Encoding -->
     <meta charset="UTF-8">
-
-    <!-- Mobile Responsive -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- SEO -->
     <meta name="description" content="Personal portfolio of Divyanshu Yadav - Full Stack Developer, MCA Student at Pondicherry University.">
-
-    <meta name="keywords" content="Subhrajit Biswas, Portfolio, Full Stack Developer, React, Java, Node.js, MCA">
-
+    <meta name="keywords" content="Divyanshu Yadav, Portfolio, Full Stack Developer, React, Java, Node.js, MCA">
     <meta name="author" content="Divyanshu Yadav">
+    <meta name="theme-color" content="#0A0D11">
 
-    <!-- Browser Theme -->
-    <meta name="theme-color" content="#FAFAF8">
-
-    <!-- Website Title -->
     <title>Divyanshu Yadav | Full Stack Developer</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <!-- Remix Icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" rel="stylesheet">
 
-    <!-- Main CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Responsive CSS -->
-    <link rel="stylesheet" href="responsive.css">
-
+    <style>
+         :root {
+            --bg-main: #0A0D11;
+            --bg-card: #121820;
+            --bg-card-hover: #1A232E;
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --accent: #10B981;
+            --accent-glow: rgba(16, 185, 129, 0.15);
+            --border: #1F2937;
+            --border-hover: #374151;
+            --font-main: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            --radius-lg: 16px;
+            --radius-md: 8px;
+            --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+        
+         ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+         ::-webkit-scrollbar-track {
+            background: var(--bg-main);
+        }
+        
+         ::-webkit-scrollbar-thumb {
+            background: var(--border);
+            border-radius: 4px;
+        }
+        
+         ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        /* Navigation */
+        
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(10, 13, 17, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--text-main);
+            text-decoration: none;
+            letter-spacing: -1px;
+        }
+        
+        .logo span {
+            color: var(--accent);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .resume-btn {
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: var(--transition);
+        }
+        
+        .resume-btn:hover {
+            background: var(--accent);
+            color: var(--bg-main);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+        /* Hero */
+        
+        .hero {
+            padding-top: 160px;
+            padding-bottom: 100px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        .eyebrow {
+            color: var(--accent);
+            font-weight: 700;
+            letter-spacing: 2px;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content h2 {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            max-width: 540px;
+            margin-bottom: 2.5rem;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 1.6rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .hero-link.primary {
+            background: var(--accent);
+            color: var(--bg-main);
+        }
+        
+        .hero-link.primary:hover {
+            box-shadow: 0 0 25px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+        
+        .hero-link.secondary {
+            background: var(--bg-card);
+            color: var(--text-main);
+            border: 1px solid var(--border);
+        }
+        
+        .hero-link.secondary:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-2px);
+        }
+        
+        .hero-image {
+            position: relative;
+        }
+        
+        .image-card {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: var(--bg-card);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            filter: grayscale(20%);
+            transition: var(--transition);
+        }
+        
+        .image-card:hover img {
+            filter: grayscale(0%);
+            transform: scale(1.02);
+        }
+        /* Section Global */
+        
+        section {
+            padding: 100px 0;
+            border-top: 1px solid var(--border);
+        }
+        
+        .section-header {
+            margin-bottom: 4rem;
+            display: flex;
+            gap: 2rem;
+            align-items: flex-start;
+        }
+        
+        .section-number {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--accent);
+            background: var(--accent-glow);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .section-title p {
+            color: var(--text-muted);
+            max-width: 600px;
+        }
+        /* Projects */
+        
+        .project-item {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            transition: var(--transition);
+        }
+        
+        .project-item:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .project-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 1rem;
+        }
+        
+        .project-heading h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .project-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .project-subtitle {
+            color: var(--accent);
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-description {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .project-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+        
+        .project-list li {
+            position: relative;
+            padding-left: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+        
+        .project-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+        
+        .project-meta {
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+        
+        .meta-title {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+        }
+        
+        .status.building {
+            color: var(--accent);
+            font-weight: 600;
+        }
+        
+        .project-image {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        
+        .project-link:hover {
+            gap: 0.8rem;
+        }
+        /* About Section */
+        
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 0.8fr;
+            gap: 4rem;
+        }
+        
+        .about-content h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+        
+        .about-content p {
+            color: var(--text-muted);
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+        
+        .about-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--border);
+        }
+        
+        .info-block span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            font-weight: 700;
+        }
+        
+        .info-block h4 {
+            font-size: 1rem;
+            margin-top: 0.3rem;
+            color: var(--text-main);
+        }
+        /* Expertise Grid */
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .expertise-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            transition: var(--transition);
+        }
+        
+        .expertise-card:hover {
+            border-color: var(--border-hover);
+            transform: translateY(-4px);
+        }
+        
+        .expertise-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--accent);
+        }
+        
+        .tech-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tech-list span {
+            background: var(--bg-main);
+            border: 1px solid var(--border);
+            padding: 0.4rem 0.8rem;
+            border-radius: var(--radius-md);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        /* Lab Cards */
+        
+        .lab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .practical-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+        
+        .practical-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-4px);
+        }
+        
+        .practical-number {
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .practical-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .practical-description {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .practical-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            transition: var(--transition);
+        }
+        
+        .practical-card:hover .practical-link {
+            color: var(--accent);
+        }
+        /* Contact Section */
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+        
+        .contact-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background: var(--accent);
+            color: var(--bg-main);
+            padding: 1rem 2rem;
+            border-radius: var(--radius-md);
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 2rem;
+            transition: var(--transition);
+        }
+        
+        .contact-cta:hover {
+            box-shadow: 0 0 30px var(--accent-glow);
+            transform: translateY(-2px);
+        }
+        
+        .contact-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .contact-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            padding: 1.5rem;
+            border-radius: var(--radius-lg);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-decoration: none;
+            color: var(--text-main);
+            transition: var(--transition);
+        }
+        
+        .contact-item:hover {
+            border-color: var(--accent);
+        }
+        
+        .contact-item h3 {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.2rem;
+        }
+        
+        .contact-item p {
+            font-weight: 600;
+            font-size: 0.95rem;
+            word-break: break-all;
+        }
+        /* Footer */
+        
+        .footer {
+            border-top: 1px solid var(--border);
+            padding: 3rem 0;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .footer-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .footer-brand h2 {
+            color: var(--text-main);
+        }
+        /* Responsive */
+        
+        @media (max-width: 992px) {
+            .hero-container,
+            .about-grid,
+            .contact-grid,
+            .project-item {
+                grid-template-columns: 1fr;
+            }
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- Everything will be built here -->
-     <header id="home" class="hero">
-
-    <!-- ================= NAVBAR ================= -->
-
+    <!-- NAVBAR -->
     <nav class="navbar">
-
         <div class="container nav-container">
-
-            <a href="#home" class="logo">DY.</a>
-
+            <a href="#home" class="logo">DY<span>.</span></a>
             <ul class="nav-links">
-           <li><a href="#projects">Projects</a></li>
-           <li><a href="#about">About</a></li>
-           <li><a href="#experience">Experience</a></li>
-           <li><a href="#technical-expertise">Expertise</a></li>
-           <li><a href="#web-technologies-lab">I&W Lab</a></li>
-          <li><a href="#contact">Contact</a></li>
-         </ul>
-
-            <a href="cvdiv (1).pdf" class="resume-btn">
-                Resume ↗
-            </a>
-
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#lab">Lab</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="cvdiv (1).pdf" class="resume-btn">Resume ↗</a>
         </div>
-
     </nav>
 
-    <!-- ================= HERO ================= -->
-
-    <div class="container hero-container">
-
-        <div class="hero-content">
-
-            <span class="eyebrow">
-                HELLO —
-            </span>
-
-            <h1>
-
-                DIVYANSHU <br>
-                YADAV
-
-            </h1>
-
-            <h2>
-
-                Crafting Digital Experiences
-                <br>
-                For The Modern Web.
-
-            </h2>
-
-            <p>
-
-                Full Stack Developer focused on building clean,
-                modern and user-centric digital products.
-                Currently pursuing MCA at Pondicherry University.
-
-            </p>
-
-           <div class="hero-buttons">
-
-        <a href="#work" class="hero-link">
-
-    View Work
-
-<span>→</span>
-
-</a>
-
-<a href="cvdiv (1).pdf" class="hero-link">
-
-Download CV
-
-<span>→</span>
-
-</a>
-
-</div>
-
-        </div>
-<div class="hero-image">
-
-    <div class="image-card">
-
-        <img
-            src="div1.jpeg"
-            alt="Divyanshu Yadav">
-
-    </div>
-
-    <div class="dots"></div>
-
-</div>
-
-    </div>
-    <div class="scroll-indicator">
-
-    SCROLL DOWN
-
-    <span>↓</span>
-
-</div>
-
-</header>
-<section class="projects" id="projects">
-
-    <!-- Section Header -->
-<div class="section-header">
-
-    <span class="section-number"></span>
-
-    <div class="section-title">
-
-        <h2>CURRENTLY<br>BUILDING.</h2>
-
-        <p>
-            The products I'm actively designing and developing.
-            Every project reflects my focus on solving practical
-            problems through thoughtful engineering.
-        </p>
-
-    </div>
-
-</div>
-
-  <!-- ================= PROJECTS ================= -->
-<section class="projects" id="projects">
-
-    <!-- Section Header -->
-    <div class="section-header">
-
-        <span class="section-number">01</span>
-
-        <div class="section-title">
-
-            <h2>FEATURED PROJECTS.</h2>
-
-            <p>
-                A collection of software engineering projects showcasing
-                full-stack development, Artificial Intelligence,
-                healthcare technology and modern web applications.
-            </p>
-
-        </div>
-
-    </div>
-
-    <!-- ================================================= -->
-    <!-- Project 01 -->
-    <!-- ================================================= -->
-
-    <article class="project-item">
-
-        <div class="project-content">
-
-            <div class="project-heading">
-
-                <h3>Web Development Projects (HTML, CSS, JavaScript, React)</h3>
-
-                <span class="project-date">
-                    2021 – Present
-                </span>
-
-            </div>
-
-            <ul class="project-list">
-
-                <li>
-                    Developed a responsive personal portfolio with 10+ project
-                    showcases using HTML, CSS and JavaScript.
-                </li>
-
-                <li>
-                    Created an educational platform containing 20+
-                    tutorials with integrated search functionality.
-                </li>
-
-                <li>
-                    Implemented social media features including
-                    profile creation, posting and commenting.
-                </li>
-
-                <li>
-                    Built a Movie Explorer using the TMDB API to browse
-                    1000+ movies with detailed information and search.
-                </li>
-
-            </ul>
-
-            <a href="#" class="project-link">
-                Explore Project →
-            </a>
-
-        </div>
-
-        <div class="project-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=900&q=80"
-                alt="Web Development">
-
-        </div>
-
-    </article>
-
-    <!-- ================================================= -->
-    <!-- Project 02 -->
-    <!-- ================================================= -->
-
-    <article class="project-item">
-
-        <div class="project-content">
-
-            <div class="project-heading">
-
-                <h3>Triage AI – Healthcare Web Application</h3>
-
-                <span class="project-date">
-                    2025 – Present
-                </span>
-
-            </div>
-
-            <ul class="project-list">
-
-                <li>
-                    Developed an AI-powered healthcare assistant
-                    capable of predicting health risk levels
-                    from user symptoms.
-                </li>
-
-                <li>
-                    Implemented backend services using Python Flask
-                    and integrated AI-based prediction logic.
-                </li>
-
-                <li>
-                    Suggested nearby hospitals and emergency
-                    ambulance services based on user location.
-                </li>
-
-                <li>
-                    Designed a clean, responsive interface
-                    focused on accessibility and ease of use.
-                </li>
-
-            </ul>
-
-            <a href="#" class="project-link">
-                Explore Project →
-            </a>
-
-        </div>
-
-        <div class="project-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80"
-                alt="Healthcare AI">
-
-        </div>
-
-    </article>
-
-    <!-- ================================================= -->
-    <!-- Project 03 -->
-    <!-- ================================================= -->
-
-    <article class="project-item">
-
-        <div class="project-content">
-
-            <div class="project-heading">
-
-                <h3>POLA – Campus Ride Sharing Platform</h3>
-
-                <span class="project-date">
-                    2025 – Present
-                </span>
-
-            </div>
-
-            <ul class="project-list">
-
-                <li>
-                    Developed a campus-exclusive ride-sharing platform
-                    connecting students travelling within the university.
-                </li>
-
-                <li>
-                    Enabled students to book rides instantly,
-                    reducing waiting time and improving safety.
-                </li>
-
-                <li>
-                    Designed a modern user interface with
-                    ride booking, driver matching and trip history.
-                </li>
-
-                <li>
-                    Built using React, Node.js, Express and MongoDB
-                    with scalable full-stack architecture.
-                </li>
-
-            </ul>
-
-            <a href="#" class="project-link">
-                Explore Project →
-            </a>
-
-        </div>
-
-        <div class="project-image">
-
-            <img
-                src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80"
-                alt="POLA Ride Sharing">
-
-        </div>
-
-    </article>
-<!-- ================================================= -->
-<!-- Project 01 -->
-<!-- ================================================= -->
-
-<article class="project-item">
-
-    <div class="project-content">
-
-        <div class="project-heading">
-
-            <h3>Veracity AI</h3>
-
-            <span class="project-date">
-                2025 – Present
-            </span>
-
-        </div>
-
-        <h4 class="project-subtitle">
-            AI-Powered Fake News Detection & Digital Wellbeing Platform
-        </h4>
-
-        <p class="project-description">
-
-            Veracity AI is an intelligent AI-powered platform designed to
-            combat online misinformation while promoting healthier digital
-            habits. The application combines Fake News Detection using
-            Google's Gemini AI with Digital Wellbeing analytics to help
-            users verify online information and understand their smartphone
-            usage patterns.
-
-        </p>
-
-        <ul class="project-list">
-
-            <li>
-                Developed an AI-powered fake news detection system using
-                <strong>Google Gemini API</strong> capable of analysing news
-                articles, URLs and social media posts with confidence scores
-                and detailed AI explanations.
-            </li>
-
-            <li>
-                Integrated an AI chatbot to verify user claims, explain
-                misinformation and provide educational responses using
-                advanced prompt engineering.
-            </li>
-
-            <li>
-                Designed a Digital Wellbeing module capable of analysing
-                daily, weekly and monthly smartphone screen time,
-                social media usage, unlock count and application statistics.
-            </li>
-
-            <li>
-                Built an AI Recommendation Engine that suggests healthier
-                digital habits, productivity improvements and personalised
-                screen-time reduction strategies.
-            </li>
-
-            <li>
-                Created interactive dashboards showing app-wise usage,
-                productivity score, weekly reports, monthly analytics,
-                peak usage hours and Digital Balance Score.
-            </li>
-
-            <li>
-                Implemented secure authentication, user history,
-                analytics reports and REST APIs using Django REST Framework.
-            </li>
-
-            <li>
-                Android companion application uses
-                <strong>UsageStatsManager API</strong> for collecting
-                screen-time statistics with user permission.
-            </li>
-
-        </ul>
-
-        <div class="project-meta">
-
-            <div>
-
-                <span class="meta-title">
-                    STATUS
-                </span>
-
-                <span class="status building">
-                    Major Project • In Development
-                </span>
-
-            </div>
-
-            <div>
-
-                <span class="meta-title">
-                    TECH STACK
-                </span>
-
-                <p>
-
-                    React.js • Django REST Framework • Python •
-                    Gemini AI • MySQL • Android • REST API •
-                    JWT • Bootstrap
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <a href="#" class="project-link">
-            Explore Project →
-        </a>
-
-    </div>
-
-    <div class="project-image">
-
-        <img
-
-        src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80"
-
-        alt="Veracity AI Dashboard">
-
-    </div>
-
-</article>
-</section>
-    </article>
-    
-
-<!-- ===================================== -->
-<!-- ABOUT ME -->
-<!-- ===================================== -->
-
-<section id="about" class="about-section">
-
-    <div class="section-number">
-        03
-    </div>
-
-    <h1 class="section-title">
-        ABOUT ME.
-    </h1>
-
-    <div class="title-line"></div>
-
-    <div class="about-content">
-
-        <h2 class="about-heading">
-
-            I believe technology creates the greatest impact when it
-            solves real-world problems and improves everyday life.
-
-        </h2>
-
-        <p>
-
-            I'm <strong>Divyanshu Yadav</strong>, currently pursuing my
-            <strong>Master of Computer Applications (MCA)</strong> at
-            <strong>Pondicherry University</strong>. I am passionate about
-            Artificial Intelligence, Full Stack Development, Data Analytics,
-            and building intelligent software that delivers meaningful solutions.
-
-        </p>
-
-        <p>
-
-            My interests focus on Large Language Models (LLMs), Machine Learning,
-            Natural Language Processing, Cloud Computing, and modern web technologies.
-            I enjoy transforming innovative ideas into scalable applications through
-            clean architecture, efficient development practices, and intuitive user
-            experiences.
-
-        </p>
-
-        <p>
-
-            Currently, I am developing
-            <strong>VERACITY AI</strong>, an AI-powered platform that combines
-            fake news detection with digital wellbeing monitoring using
-            Google's Gemini AI. The platform verifies online information,
-            analyzes smartphone usage patterns, and provides personalized
-            recommendations to encourage healthier digital habits.
-
-        </p>
-
-        <p>
-
-            Alongside VERACITY AI, I have worked on projects like
-            <strong>POLA</strong>, a smart campus ride-sharing platform,
-            <strong>Triage AI</strong>, an intelligent healthcare assistant,
-            and several web-based applications that demonstrate my skills in
-            frontend development, backend engineering, AI integration, and
-            database management.
-
-        </p>
-
-        <p>
-
-            I believe learning never stops. Every project I build strengthens my
-            understanding of Artificial Intelligence, software engineering, and
-            real-world problem solving. My goal is to become an AI Engineer who
-            develops intelligent products that positively impact society.
-
-        </p>
-
-    </div>
-
-</section>
-
-        <!-- RIGHT COLUMN -->
-
-        <div class="about-right">
-
-            <div class="about-image">
-
-                <img src="photo.jpg" alt="Divyanshu Yadav">
-
-            </div>
-
-            <div class="about-signature">
-
-                <img src="signature.jpg" alt="Signature">
-
-            </div>
-
-            <p class="about-quote">
-                Engineering with purpose. Designing with intention.
-            </p>
-
-            <div class="about-info">
-
-                <div class="info-block">
-
-                    <span>EDUCATION</span>
-
-                    <h4>MCA</h4>
-
-                    <p>Pondicherry University</p>
-
+    <!-- HERO -->
+    <header id="home" class="hero">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <span class="eyebrow">Hello —</span>
+                <h1>DIVYANSHU<br>YADAV</h1>
+                <h2>Crafting Digital Experiences For The Modern Web.</h2>
+                <p>Full Stack Developer focused on building clean, modern, and user-centric digital products. Currently pursuing MCA at Pondicherry University.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="hero-link primary">View Work <span>→</span></a>
+                    <a href="cvdiv (1).pdf" class="hero-link secondary">Download CV <span>↓</span></a>
                 </div>
-
-                
-
-                <div class="info-block">
-
-                    <span>CURRENTLY BUILDING</span>
-
-                    <h4>Web Development Projects•Triage AI – Healthcare Web•Veracity AI • POLA</h4>
-
+            </div>
+            <div class="hero-image">
+                <div class="image-card">
+                    <img src="div1.jpeg" alt="Divyanshu Yadav">
                 </div>
+            </div>
+        </div>
+    </header>
 
-                <div class="info-block">
-
-                    <span>BASED IN</span>
-
-                    <h4>Pondicherry, India</h4>
-
+    <!-- PROJECTS -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <div class="section-title">
+                    <h2>FEATURED PROJECTS</h2>
+                    <p>Actively designing and developing software with a focus on solving practical problems through engineering.</p>
                 </div>
-
-                <div class="info-block">
-
-                    <span>OPEN TO</span>
-
-                    <h4>
-                         Internships · Freelance · Collaborations
-                    </h4>
-
-                </div>
-
             </div>
 
+            <!-- Project 01: Veracity AI -->
+            <article class="project-item">
+                <div class="project-content">
+                    <div class="project-heading">
+                        <h3>Veracity AI</h3>
+                        <span class="project-date">2025 – Present</span>
+                    </div>
+                    <h4 class="project-subtitle">AI-Powered Fake News Detection & Digital Wellbeing Platform</h4>
+                    <p class="project-description">
+                        Combines Fake News Detection using Google's Gemini AI with Digital Wellbeing analytics to help users verify online information and manage smartphone usage patterns.
+                    </p>
+                    <ul class="project-list">
+                        <li>Analyzes news articles, URLs, and social media posts with confidence scores via Gemini API.</li>
+                        <li>Integrates AI chatbot to clarify misinformation claims.</li>
+                        <li>Digital Wellbeing module analyzing daily/weekly screen time via UsageStatsManager API.</li>
+                        <li>Built with Django REST Framework, React.js, MySQL, and Android.</li>
+                    </ul>
+                    <div class="project-meta">
+                        <div>
+                            <span class="meta-title">STATUS: </span>
+                            <span class="status building">Major Project • In Development</span>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="#" class="project-link">Explore Project →</a>
+                </div>
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80" alt="Veracity AI Dashboard">
+                </div>
+            </article>
+
+            <!-- Project 02: Triage AI -->
+            <article class="project-item">
+                <div class="project-content">
+                    <div class="project-heading">
+                        <h3>Triage AI</h3>
+                        <span class="project-date">2025 – Present</span>
+                    </div>
+                    <h4 class="project-subtitle">Healthcare Web Application</h4>
+                    <p class="project-description">
+                        AI-powered healthcare assistant capable of predicting health risk levels from user symptoms and recommending emergency response resources.
+                    </p>
+                    <ul class="project-list">
+                        <li>Implemented backend services using Python Flask and AI prediction logic.</li>
+                        <li>Suggests nearby hospitals and emergency ambulance services via user location.</li>
+                        <li>Clean, responsive interface built with accessibility-first standards.</li>
+                    </ul>
+                    <a href="#" class="project-link">Explore Project →</a>
+                </div>
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80" alt="Healthcare AI">
+                </div>
+            </article>
+
+            <!-- Project 03: POLA -->
+            <article class="project-item">
+                <div class="project-content">
+                    <div class="project-heading">
+                        <h3>POLA</h3>
+                        <span class="project-date">2025 – Present</span>
+                    </div>
+                    <h4 class="project-subtitle">Campus Ride Sharing Platform</h4>
+                    <p class="project-description">
+                        Exclusive ride-sharing platform designed to connect students travelling within university campuses.
+                    </p>
+                    <ul class="project-list">
+                        <li>Enables instant ride booking, reducing waiting times and improving campus safety.</li>
+                        <li>Includes driver matching, ride scheduling, and detailed trip history logs.</li>
+                        <li>Built using React, Node.js, Express, and MongoDB.</li>
+                    </ul>
+                    <a href="#" class="project-link">Explore Project →</a>
+                </div>
+                <div class="project-image">
+                    <img src="https://images.unsplash.com/photo-1516321497487-e288fb19713f?auto=format&fit=crop&w=900&q=80" alt="POLA Ride Sharing">
+                </div>
+            </article>
         </div>
+    </section>
 
-    </div>
-
-</section>
-
-<!-- =========================
-     Technical Expertise
-========================= -->
-<section id="technical-expertise" class="technical-expertise">
-
-    <div class="technical-expertise-container">
-
-        <!-- Left Content -->
-        <div class="technical-expertise-left">
-
-            <span class="technical-expertise-number">05</span>
-
-            <h2 class="technical-expertise-heading">
-                TECHNICAL <br>
-                EXPERTISE<span>.</span>
-            </h2>
-
-            <div class="technical-expertise-divider"></div>
-
-            <p class="technical-expertise-description">
-                I design and develop digital experiences that combine clean
-                engineering, thoughtful user experience, and scalable
-                architecture.
-            </p>
-
+    <!-- ABOUT -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <div class="section-title">
+                    <h2>ABOUT ME</h2>
+                </div>
+            </div>
+            <div class="about-grid">
+                <div class="about-content">
+                    <h2>Engineering with purpose. Designing with intention.</h2>
+                    <p>I'm <strong>Divyanshu Yadav</strong>, an MCA student at <strong>Pondicherry University</strong>. I specialize in Full Stack Development, Artificial Intelligence, and Data Analytics.</p>
+                    <p>My interest centers around Large Language Models (LLMs), Machine Learning, and Cloud Computing. I enjoy converting concepts into scalable products with clean code architecture and user-friendly interface design.</p>
+                </div>
+                <div class="about-info">
+                    <div class="info-block">
+                        <span>EDUCATION</span>
+                        <h4>MCA @ Pondicherry Univ</h4>
+                    </div>
+                    <div class="info-block">
+                        <span>BASED IN</span>
+                        <h4>Pondicherry, India</h4>
+                    </div>
+                    <div class="info-block">
+                        <span>CURRENTLY BUILDING</span>
+                        <h4>Veracity AI & POLA</h4>
+                    </div>
+                    <div class="info-block">
+                        <span>OPEN TO</span>
+                        <h4>Internships & Freelance</h4>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Right Content -->
-        <div class="technical-expertise-right">
-
-            <div class="technical-expertise-grid">
-
-                <!-- Frontend -->
-                <div class="technical-expertise-category">
+    <!-- EXPERTISE -->
+    <section id="expertise" class="expertise">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <div class="section-title">
+                    <h2>TECHNICAL EXPERTISE</h2>
+                    <p>Core skill sets and framework proficiencies applied across full-stack applications.</p>
+                </div>
+            </div>
+            <div class="expertise-grid">
+                <div class="expertise-card">
                     <h3>Frontend</h3>
-                    <div class="category-line"></div>
-
                     <div class="tech-list">
-                        <span>React</span>
-                        <span>JavaScript</span>
-                        <span>HTML5</span>
-                        <span>CSS3</span>
-                        <span>Tailwind CSS</span>
+                        <span>React</span><span>JavaScript</span><span>HTML5</span><span>CSS3</span><span>Tailwind CSS</span>
                     </div>
                 </div>
-
-                <!-- Backend -->
-                <div class="technical-expertise-category">
+                <div class="expertise-card">
                     <h3>Backend</h3>
-                    <div class="category-line"></div>
-
                     <div class="tech-list">
-                        <span>Node.js</span>
-                        <span>Express.js</span>
-                        <span>REST APIs</span>
-                        <span>JWT Authentication</span>
+                        <span>Node.js</span><span>Express.js</span><span>Django</span><span>Flask</span><span>REST APIs</span>
                     </div>
                 </div>
-
-                <!-- Database -->
-                <div class="technical-expertise-category">
+                <div class="expertise-card">
                     <h3>Database</h3>
-                    <div class="category-line"></div>
                     <div class="tech-list">
-                        <span>MongoDB</span>
-                        <span>MySQL</span>
+                        <span>MongoDB</span><span>MySQL</span>
                     </div>
                 </div>
-
-                <!-- Cloud -->
-                <div class="technical-expertise-category">
-                    <h3>Cloud & Deployment</h3>
-                    <div class="category-line"></div>
-
+                <div class="expertise-card">
+                    <h3>Cloud & Tools</h3>
                     <div class="tech-list">
-                        <span>AWS</span>
-                        <span>Docker</span>
-                        <span>Vercel</span>
-                        
+                        <span>AWS</span><span>Docker</span><span>Git</span><span>GitHub</span><span>Vercel</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
 
-                <!-- Design -->
-                <div class="technical-expertise-category">
-                    <h3>Design</h3>
-                    <div class="category-line"></div>
-                    <div class="tech-list">
-                        <span>Figma</span>
-                        <span>WordPress</span>
-                        <span>UI / UX</span>
-                        <span>Responsive Design</span>
+    <!-- LAB -->
+    <section id="lab" class="lab">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <div class="section-title">
+                    <h2>WEB TECHNOLOGIES LAB</h2>
+                    <p>Curated archive of practical assignments completed at Pondicherry University.</p>
+                </div>
+            </div>
+            <div class="lab-grid">
+                <div class="practical-card">
+                    <div>
+                        <span class="practical-number">PRACTICAL 01</span>
+                        <h3 class="practical-title">Resume Website</h3>
+                        <p class="practical-description">Static resume webpage built using semantic HTML markup.</p>
                     </div>
+                    <a href="https://trouvergarcons.github.io/1/" class="practical-link">View Practical <span>→</span></a>
                 </div>
-
-                <!-- Tools -->
-                <div class="technical-expertise-category">
-                    <h3>Tools</h3>
-                    <div class="category-line"></div>
-                    <div class="tech-list">
-                        <span>Git</span>
-                        <span>GitHub</span>
-                        <span>VS Code</span>
+                <div class="practical-card">
+                    <div>
+                        <span class="practical-number">PRACTICAL 02</span>
+                        <h3 class="practical-title">Shopping Website</h3>
+                        <p class="practical-description">Static shopping page displaying products with CSS grid layout.</p>
                     </div>
+                    <a href="https://trouvergarcons.github.io/2/" class="practical-link">View Practical <span>→</span></a>
                 </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-<!-- ==========================================
-     Internet & Web Technologies Lab
-========================================== -->
-
-<section id="web-technologies-lab" class="web-technologies-lab">
-
-    <div class="web-technologies-container">
-
-        <!-- Left Side -->
-        <div class="web-technologies-left">
-
-            <span class="web-technologies-number">
-                06
-            </span>
-
-            <h2 class="web-technologies-heading">
-                Internet & <br>
-                Web Technologies <br>
-                Lab<span>.</span>
-            </h2>
-
-            <div class="web-technologies-divider"></div>
-
-            <p class="web-technologies-description">
-                A curated archive of practical assignments completed during
-                the Internet & Web Technologies Lab at Pondicherry University.
-                Each repository demonstrates a different concept in modern
-                web development throughout the semester.
-            </p>
-
-        </div>
-
-        <!-- Right Side -->
-
-        <!-- Right Side -->
-
-<div class="web-technologies-right">
-
-    <!-- Practical 01 -->
-    <div class="practical-card">
-
-        <span class="practical-number">01</span>
-
-        <h3 class="practical-title">
-            Resume Website
-        </h3>
-
-        <p class="practical-description">
-            Create a static resume webpage using semantic HTML
-            and include a profile image.
-        </p>
-
-        <a href="https://trouvergarcons.github.io/1/" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-    <!-- Practical 02 -->
-    <div class="practical-card">
-
-        <span class="practical-number">02</span>
-
-        <h3 class="practical-title">
-            Shopping Website
-        </h3>
-
-        <p class="practical-description">
-            Build a static shopping webpage displaying
-            product details using HTML and CSS.
-        </p>
-
-        <a href="https://trouvergarcons.github.io/2/" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-    <!-- Practical 03 -->
-    <div class="practical-card">
-
-        <span class="practical-number">03</span>
-
-        <h3 class="practical-title">
-            Quiz Application
-        </h3>
-
-        <p class="practical-description">
-            Develop a 20-question quiz application
-            and display the final score.
-        </p>
-
-        <a href="https://trouvergarcons.github.io/3/" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-    <!-- Practical 04 -->
-    <div class="practical-card">
-
-        <span class="practical-number">04</span>
-
-        <h3 class="practical-title">
-            Scientific Calculator
-        </h3>
-
-        <p class="practical-description">
-            Create an online calculator with
-            basic and scientific functions.
-        </p>
-
-        <a href="#" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-    <!-- Practical 05 -->
-    <div class="practical-card">
-
-        <span class="practical-number">05</span>
-
-        <h3 class="practical-title">
-            Employee Form
-        </h3>
-
-        <p class="practical-description">
-            Design an employee registration form
-            and store records in phpMyAdmin.
-        </p>
-
-        <a href="#" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-    <!-- Practical 06 -->
-    <div class="practical-card">
-
-        <span class="practical-number">06</span>
-
-        <h3 class="practical-title">
-            Department Website
-        </h3>
-
-        <p class="practical-description">
-            Develop a department website with
-            login, registration and database support.
-        </p>
-
-        <a href="#" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-    <!-- Practical 07 -->
-    <div class="practical-card">
-
-        <span class="practical-number">07</span>
-
-        <h3 class="practical-title">
-            Company Portal
-        </h3>
-
-        <p class="practical-description">
-            Create a company portal featuring
-            Employee and Admin authentication.
-        </p>
-
-        <a href="#" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-    <!-- Practical 08 -->
-    <div class="practical-card">
-
-        <span class="practical-number">08</span>
-
-        <h3 class="practical-title">
-            Contact Manager
-        </h3>
-
-        <p class="practical-description">
-            Build a contact management system
-            with full CRUD operations.
-        </p>
-
-        <a href="#" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-    <!-- Practical 09 -->
-    <div class="practical-card">
-
-        <span class="practical-number">09</span>
-
-        <h3 class="practical-title">
-            Weather API
-        </h3>
-
-        <p class="practical-description">
-            Fetch live weather information using
-            AJAX and a public weather API.
-        </p>
-
-        <a href="#" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-    <!-- Practical 10 -->
-    <div class="practical-card">
-
-        <span class="practical-number">10</span>
-
-        <h3 class="practical-title">
-            Book API Explorer
-        </h3>
-
-        <p class="practical-description">
-            Retrieve and display book data
-            using jQuery AJAX requests.
-        </p>
-
-        <a href="#" class="practical-link">
-            View Practical <span>→</span>
-        </a>
-
-    </div>
-
-</div>
-</section>
-<!-- ==========================================
-     Let's Build Something Meaningful
-========================================== -->
-
-<section id="contact" class="contact">
-
-    <div class="contact-container">
-
-        <!-- Left Content -->
-        <div class="contact-left">
-
-            <span class="contact-number">
-                07
-            </span>
-
-            <h2 class="contact-heading">
-                Let's Build <br>
-                Something <br>
-                Meaningful<span>.</span>
-            </h2>
-
-            <div class="contact-divider"></div>
-
-            <p class="contact-description">
-                Whether you're building a startup, looking for a developer,
-                or simply want to collaborate on something exciting,
-                I'd love to hear from you.
-            </p>
-
-            <a href="mailto:anshuyadav03171@gmail.com"
-               class="contact-cta">
-
-                Start a Conversation
-                <span>→</span>
-
-            </a>
-
-        </div>
-
-        <!-- Right Content -->
-
-        <div class="contact-right">
-
-            <!-- Email -->
-
-            <div class="contact-item">
-
-                <span class="contact-item-number">
-                    01
-                </span>
-
-                <div class="contact-item-content">
-
-                    <h3>Email</h3>
-
-                    <p>
-                        anshuyadav03171@gmail.com
-                    </p>
-
+                <div class="practical-card">
+                    <div>
+                        <span class="practical-number">PRACTICAL 03</span>
+                        <h3 class="practical-title">Quiz Application</h3>
+                        <p class="practical-description">Interactive 20-question quiz application with dynamic scoring.</p>
+                    </div>
+                    <a href="https://trouvergarcons.github.io/3/" class="practical-link">View Practical <span>→</span></a>
                 </div>
-
-                <a href="mailto:anshuyadav03171@gmail.com"
-                   class="contact-arrow">
-
-                    <span>→</span>
-
-                </a>
-
-            </div>
-
-            <!-- LinkedIn -->
-
-            <div class="contact-item">
-
-                <span class="contact-item-number">
-                    02
-                </span>
-
-                <div class="contact-item-content">
-
-                    <h3>LinkedIn</h3>
-
-                    <p>
-                        https://www.linkedin.com/in/divyanshu-yadav-6a3249363/
-                    </p>
-
+                <div class="practical-card">
+                    <div>
+                        <span class="practical-number">PRACTICAL 04</span>
+                        <h3 class="practical-title">Scientific Calculator</h3>
+                        <p class="practical-description">Web calculator featuring basic and scientific functionality.</p>
+                    </div>
+                    <a href="#" class="practical-link">View Practical <span>→</span></a>
                 </div>
-
-                <a href="https://www.linkedin.com/in/divyanshu-yadav-6a3249363/"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="contact-arrow">
-                <span>→</span>
-               </a>
-
             </div>
+        </div>
+    </section>
 
-            <!-- GitHub -->
-
-            <div class="contact-item">
-
-                <span class="contact-item-number">
-                    03
-                </span>
-
-                <div class="contact-item-content">
-
-                    <h3>GitHub</h3>
-
-                    <p>
-                        https://github.com/trouvergarcons
-                    </p>
-
+    <!-- CONTACT -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div>
+                    <div class="section-header" style="margin-bottom: 2rem;">
+                        <span class="section-number">05</span>
+                        <div class="section-title">
+                            <h2>LET'S CONNECT</h2>
+                        </div>
+                    </div>
+                    <p style="color: var(--text-muted); font-size: 1.1rem;">Whether you are looking to build a new product, collaborate on open-source, or discuss developer opportunities, feel free to reach out.</p>
+                    <a href="mailto:anshuyadav03171@gmail.com" class="contact-cta">Start A Conversation <span>→</span></a>
                 </div>
-
-               <a href="https://github.com/trouvergarcons"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="contact-arrow">
-              <span>→</span>
-            </a>
-
-            </div>
-
-            <!-- Resume -->
-
-            <div class="contact-item">
-
-                <span class="contact-item-number">
-                    04
-                </span>
-
-                <div class="contact-item-content">
-
-                    <h3>Resume</h3>
-
-                    <p>
-                        Download PDF
-                    </p>
-
+                <div class="contact-list">
+                    <a href="mailto:anshuyadav03171@gmail.com" class="contact-item">
+                        <div>
+                            <h3>EMAIL</h3>
+                            <p>anshuyadav03171@gmail.com</p>
+                        </div>
+                        <span>→</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/divyanshu-yadav-6a3249363/" target="_blank" class="contact-item">
+                        <div>
+                            <h3>LINKEDIN</h3>
+                            <p>divyanshu-yadav-6a3249363</p>
+                        </div>
+                        <span>→</span>
+                    </a>
+                    <a href="https://github.com/trouvergarcons" target="_blank" class="contact-item">
+                        <div>
+                            <h3>GITHUB</h3>
+                            <p>github.com/trouvergarcons</p>
+                        </div>
+                        <span>→</span>
+                    </a>
                 </div>
-
-                <a href="./assets/rcvdiv (1).pdf"
-                 target="_blank"
-                class="contact-arrow">
-                 <span>→</span>        
-                </a>
-
             </div>
-
         </div>
+    </section>
 
-    </div>
-
-</section>
-<!-- ==========================================
-                Footer
-========================================== -->
-
-<!-- ==========================================
-                    Footer
-========================================== -->
-
-<footer class="footer">
-
-    <div class="footer-container">
-
-        <!-- Left -->
-
-        <div class="footer-brand">
-
-            <h2>DY.</h2>
-
-            <p>
-                Crafted with curiosity.<br>
-                Designed with intention.
-            </p>
-
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <h2>DY.</h2>
+            </div>
+            <div>
+                <p>Designed & Developed by Divyanshu Yadav.</p>
+            </div>
+            <div>
+                <p>© <span id="year"></span> All Rights Reserved.</p>
+            </div>
         </div>
+    </footer>
 
-        <!-- Center -->
-
-        <div class="footer-center">
-
-            <p class="footer-label">
-                Designed & Developed
-            </p>
-
-            <h3>
-                by Divyanshu Yadav.
-            </h3>
-
-            <span>
-                Thanks for stopping by.
-            </span>
-
-        </div>
-
-        <!-- Right -->
-
-        <div class="footer-right">
-
-            <p>
-               © <span id="year"></span> All Rights Reserved.
-            </p>
-
-        </div>
-
-    </div>
-
-</footer>
-<script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-</script>
-
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 </body>
 
 </html>
